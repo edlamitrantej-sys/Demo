@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f6f2">
+  <title>Papertrail — Document intake</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#"><span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8 5.5h10l6 6v15H8z"/><path d="M18 5.5v7h6M12 17h8M12 21h6"/></svg></span><span>papertrail<span class="brand-dot">.</span></span></a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="nav-list" aria-label="Main navigation">
+        <a class="nav-item active" href="#intake"><span class="nav-icon">▦</span>Intake <span class="nav-count">01</span></a>
+        <a class="nav-item" href="#queue"><span class="nav-icon">☷</span>Review queue <span class="nav-count muted">0</span></a>
+        <a class="nav-item" href="#how-it-works"><span class="nav-icon">⌘</span>Model &amp; metrics</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="sidebar-tip"><span class="tip-icon">✳</span><div><strong>Built for busy desks</strong><p>Let routine paperwork find its way.</p></div></div>
+        <div class="profile"><div class="avatar">A</div><div class="profile-copy"><strong>Alex Morgan</strong><span>Workspace admin</span></div><span class="more">···</span></div>
+      </div>
+    </aside>
+
+    <main class="main-content" id="intake">
+      <header class="topbar"><div class="breadcrumb">Workspace <span>/</span> <strong>Document intake</strong></div><div class="top-actions"><span class="demo-pill"><i></i> Prototype mode</span><button class="help-button" type="button" aria-label="Help">?</button></div></header>
+      <section class="page-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> DOCUMENT AUTOMATION</div><h1>Every document,<br><em>in the right place.</em></h1><p class="intro">Drop in a scan or photo. We’ll identify it, check its quality, and send it to the right team.</p></div><div class="heading-art" aria-hidden="true"><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div><div class="art-doc"><div class="art-fold"></div><span></span><span></span><span></span><b>✓</b></div><div class="art-spark">✳</div></div></section>
+
+      <section class="workspace-grid">
+        <div class="left-column">
+          <section class="panel upload-panel" aria-labelledby="upload-title">
+            <div class="panel-heading"><div><div class="step-label"><span>01</span> DOCUMENT</div><h2 id="upload-title">Add a document</h2></div><span class="file-support">JPG, PNG or WEBP <span>·</span> up to 10 MB</span></div>
+            <label class="dropzone" id="dropzone" for="file-input" tabindex="0">
+              <input id="file-input" type="file" accept="image/jpeg,image/png,image/webp,image/bmp">
+              <div class="upload-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0L7 9m5-5 5 5M5 15v4h14v-4"/></svg></div>
+              <strong>Drop your document here</strong><span>or <u>browse files</u> from your device</span>
+              <div class="drop-hint"><span>⌁</span> Scans and phone photos both work</div>
+            </label>
+            <div class="privacy-note"><span>♧</span> Files stay in this browser demo and aren’t uploaded to a server.</div>
+          </section>
+
+          <section class="panel result-panel" id="result-panel" aria-live="polite" hidden>
+            <div class="panel-heading"><div><div class="step-label"><span>02</span> CLASSIFICATION</div><h2>Routing suggestion</h2></div><button class="text-button" id="clear-button" type="button">Clear <span>×</span></button></div>
+            <div class="file-card"><div class="file-thumb" id="file-thumb"><span>▧</span></div><div class="file-meta"><strong id="file-name">document.jpg</strong><span id="file-details">Image · ready to review</span></div><span class="quality-badge" id="quality-badge">✓ Ready</span></div>
+            <div class="route-result"><div class="route-topline"><div><div class="result-caption">PREDICTED TYPE</div><div class="prediction" id="prediction">Invoice</div></div><div class="confidence"><strong id="confidence-value">92%</strong><span>confidence</span></div></div><div class="confidence-track"><span id="confidence-fill"></span></div><div class="route-destination"><span class="destination-icon">↗</span><div><span>ROUTE TO</span><strong id="destination">Accounts payable</strong></div><span class="route-arrow">→</span></div><div class="decision-note" id="decision-note"></div></div>
+            <div class="action-row"><button class="secondary-button" id="change-button" type="button">Change type</button><button class="primary-button" id="route-button" type="button">Confirm &amp; route <span>→</span></button></div>
+            <div class="success-message" id="success-message" hidden><span>✓</span><div><strong>Document routed</strong><span id="success-copy">Added to Accounts payable.</span></div></div>
+          </section>
+
+          <section class="panel queue-panel" id="queue">
+            <div class="panel-heading"><div><div class="step-label"><span>03</span> NEEDS A HUMAN</div><h2>Review queue</h2></div><span class="queue-counter" id="queue-counter">0 waiting</span></div>
+            <div class="empty-queue" id="empty-queue"><div class="empty-icon">✓</div><div><strong>All clear for now</strong><span>Unclear or unfamiliar documents will show up here.</span></div></div>
+            <div class="review-list" id="review-list"></div>
+          </section>
+        </div>
+
+        <aside class="right-column">
+          <section class="panel categories-panel"><div class="panel-heading compact"><div><div class="step-label"><span>↗</span> YOUR WORKFLOWS</div><h2>We sort into</h2></div></div><div class="category-list"><div class="category-row"><span class="category-icon invoice">▤</span><div><strong>Invoice</strong><span>Accounts payable</span></div><span class="category-arrow">↗</span></div><div class="category-row"><span class="category-icon form">▧</span><div><strong>Form</strong><span>Data entry team</span></div><span class="category-arrow">↗</span></div><div class="category-row"><span class="category-icon letter">✉</span><div><strong>Letter</strong><span>Correspondence</span></div><span class="category-arrow">↗</span></div><div class="category-row"><span class="category-icon certificate">♢</span><div><strong>Certificate</strong><span>Records archive</span></div><span class="category-arrow">↗</span></div></div><div class="review-rule"><span>◎</span><p><strong>Not sure? We’ll ask.</strong> Low confidence or poor quality goes to human review.</p></div></section>
+          <section class="model-card" id="how-it-works"><div class="model-top"><span class="model-spark">✳</span><span class="model-status">DEMO MODEL</span></div><h3>A clear path<br>from paper to action.</h3><p>This UI demonstrates intake and routing. Connect a trained model to enable real predictions.</p><a href="#model-steps">See the build plan <span>→</span></a><div class="model-decoration" aria-hidden="true">✳</div></section>
+          <section class="threshold-card"><div class="threshold-head"><div><span class="threshold-icon">⌖</span><strong>Review threshold</strong></div><span id="threshold-label">70%</span></div><input type="range" id="threshold-slider" min="50" max="95" value="70" aria-label="Confidence threshold"><div class="threshold-scale"><span>More review</span><span>Fewer reviews</span></div><p>Predictions below this confidence go to the review queue.</p></section>
+          <a class="build-link" href="#model-steps"><span>✳</span><span><strong>Hackathon build plan</strong><small>Data → model → evaluation → demo</small></span><b>↗</b></a>
+        </aside>
+      </section>
+
+      <section class="build-section" id="model-steps"><div class="build-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> THE MODEL BEHIND THE ROUTE</div><h2>From a photo to a confident decision.</h2></div><p>A practical plan for the full hackathon deliverable. The current page is the interactive front end; real scores appear after you train and evaluate on labeled images.</p></div><div class="steps-grid"><article class="build-step"><span class="build-number">01</span><div class="build-icon">▧</div><h3>Prepare the images</h3><p>Use a small, balanced set of labeled examples. Correct orientation, convert to RGB, resize consistently, normalize, and augment training images with small rotations, crops, and brightness changes.</p></article><article class="build-step"><span class="build-number">02</span><div class="build-icon">◫</div><h3>Compare two models</h3><p>Set a simple baseline with resized pixels and a linear classifier. Compare it with a pretrained image CNN whose final layer is fine-tuned for the four document types.</p></article><article class="build-step"><span class="build-number">03</span><div class="build-icon">⌁</div><h3>Measure what matters</h3><p>Keep a held-out test set. Report accuracy, macro-F1, and a confusion matrix so every category’s mistakes are visible—not just the overall score.</p></article><article class="build-step"><span class="build-number">04</span><div class="build-icon">↗</div><h3>Route with a safety net</h3><p>Calibrate the confidence threshold on validation data. Reject blurry or unsupported files, and send low-confidence or unfamiliar documents to human review.</p></article></div><div class="metric-placeholder"><span class="metric-pulse"></span><div><strong>Evaluation results go here</strong><span>Connect your trained model to display accuracy, macro-F1 and the confusion matrix.</span></div><span class="metric-lock">⌑</span></div></section>
+      <footer><span>papertrail<span class="brand-dot">.</span></span><span>Document intake prototype <i>·</i> made for the hackathon</span></footer>
+    </main>
+  </div>
+  <div class="modal-backdrop" id="type-modal" hidden><section class="type-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><button class="modal-close" id="modal-close" aria-label="Close">×</button><div class="step-label"><span>↻</span> MANUAL CORRECTION</div><h2 id="modal-title">Choose the right type</h2><p>Correct the suggestion before routing this document.</p><div class="type-options"><button data-type="Invoice">▤ <span>Invoice<small>Accounts payable</small></span><i>→</i></button><button data-type="Form">▧ <span>Form<small>Data entry team</small></span><i>→</i></button><button data-type="Letter">✉ <span>Letter<small>Correspondence</small></span><i>→</i></button><button data-type="Certificate">♢ <span>Certificate<small>Records archive</small></span><i>→</i></button><button data-type="Unfamiliar">◎ <span>Unfamiliar<small>Send for human review</small></span><i>→</i></button></div></section></div>
+  <script src="app.js"></script>
+</body>
+</html>

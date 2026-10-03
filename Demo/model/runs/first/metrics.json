@@ -1,0 +1,82 @@
+{
+  "note": "Test metrics are for this dataset and split only; do not compare scores across different splits.",
+  "baseline_pixel_logistic_regression": {
+    "accuracy": 1.0,
+    "macro_f1": 1.0,
+    "confusion_matrix": [
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "class_order": [
+      "certificate",
+      "form",
+      "invoice",
+      "letter"
+    ]
+  },
+  "transfer_resnet18": {
+    "accuracy": 0.5,
+    "macro_f1": 0.375,
+    "confusion_matrix": [
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0
+      ]
+    ],
+    "class_order": [
+      "certificate",
+      "form",
+      "invoice",
+      "letter"
+    ],
+    "confidence_rejection": {
+      "threshold": 0.7,
+      "accepted": 0,
+      "rejected": 4,
+      "coverage": 0.0,
+      "accepted_accuracy": null
+    }
+  }
+}
